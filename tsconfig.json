@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "allowJs": false,
+    "allowSyntheticDefaultImports": true,
+    "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "lib": ["ES2021", "DOM", "es6", "DOM.Iterable"],
+    "module": "es2020",
+    "moduleResolution": "node",
+    "preserveConstEnums": true,
+    "skipLibCheck": true,
+    "strictNullChecks": true,
+    "target": "es6",
+    "sourceMap": true,
+    "isolatedModules": false,
+    "strict": true
+    // "noUnusedLocals": true,
+    // "noUnusedParameters": true,
+  },
+  "include": ["**/*.ts"],
+  "exclude": ["node_modules"]
+}
