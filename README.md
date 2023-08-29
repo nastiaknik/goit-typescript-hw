@@ -1,244 +1,105 @@
-# Homework 2 assignment for the TypeScript Module
+# Homework 3 assignment for the TypeScript Module
 
-## Basic Types
-
-### Task 1
-
-Convert this code to TypeScript by providing appropriate types for all variables.
+## Task 1
+Create a class Student that contains three properties: name, age, and grade. Instead of declaring these properties in the class body, then in the constructor, and finally assigning them values, write a concise initialization.
 
 ```ts
-let age = 50;
-let name = "Max";
-let toggle = true;
-let empty = null;
-let notInitialize;
-let callback = (a) => {
-  return 100 + a;
-};
-```
+class Student {
+  public name: string;
+  public age: number;
+  public grade: string;
 
-### Task 2
-
-A JavaScript variable can hold values of any type:
-
-```ts
-let anything = -20;
-anything = "Text";
-anything = {};
-```
-
-### Task 3
-
-In TypeScript, the unknown type allows us to store any value, but we can directly assign an unknown variable to another variable if we are confident about its type.
-
-What needs to be corrected in this code to make it accurate and safe?
-
-```ts
-let some: unknown;
-some = "Text";
-let str: string;
-str = some;
-```
-
-### Task 4
-
-```ts
-let person = ["Max", 21];
-```
-
-How can you rewrite it in TypeScript using the concept of tuples to ensure that the first element will always be a string, and the second one will always be a number?
-
-### Task 5
-
-How would you define a variable in TypeScript that can hold either a string or a number (union type)?
-Also, define a variable that can hold only one of the two string values: 'enable' or 'disable' (literal type)?
-
-### Task 6
-
-How would you specify the types for the arguments and return values of these functions?
-
-```ts
-function showMessage(message) {
-  console.log(message);
-}
-
-function calc(num1, num2) {
-  return num1 + num2;
-}
-
-function customError() {
-  throw new Error("Error");
-}
-```
-
-### Task 7
-
-Create a function isWeekend that takes a day of the week (from your enum) and returns a boolean value indicating whether it's a weekday or weekend.
-
-### Task 8
-
-Create a type "Gender" using a union type that can contain values "male" and "female". Declare a variable myGender of this type.
-
-### Task 9
-
-Create a new data type that fits these two objects.
-
-```ts
-const page1 = {
-  title: "The awesome page",
-  likes: 100,
-  accounts: ["Max", "Anton", "Nikita"],
-  status: "open",
-  details: {
-    createAt: new Date("2021-01-01"),
-    updateAt: new Date("2021-05-01"),
-  },
-};
-
-const page2 = {
-  title: "Python or Js",
-  likes: 5,
-  accounts: ["Alex"],
-  status: "close",
-};
-```
-
-## Generic
-
-### Task 1
-
-You have the getPromise() function, which returns a promise containing an array of strings and numbers. Complete this function using generics to return the correct type.
-
-```ts
-function getPromise() {
-  return new Promise((resolve) => {
-    resolve(["Text", 50]);
-  });
-}
-
-getPromise().then((data) => {
-  console.log(data);
-});
-```
-
-### Task 2
-
-You have the AllType type. There's a compare function that takes two objects. These objects have properties of the AllType type. Your task is to use Pick and generics to specify that the properties of these objects belong to AllType. The compare function should return an object of type AllType.
-
-```ts
-type AllType = {
-  name: string;
-  position: number;
-  color: string;
-  weight: number;
-};
-
-function compare(top, bottom): AllType {
-  return {
-    name: top.name,
-    color: top.color,
-    position: bottom.position,
-    weight: bottom.weight,
-  };
-}
-```
-
-### Task 3
-
-You have the merge function that combines two objects. Use generics to indicate that these objects can be of any type.
-
-```ts
-function merge(objA, objB) {
-  return Object.assign(objA, objB);
-}
-```
-
-### Task 4
-
-Use generics and interfaces to fix the type issue in the following classes:
-
-```ts
-class Component {
-  constructor(public props: T) {}
-}
-
-class Page extends Component {
-  pageInfo() {
-    console.log(this.props.title);
+  constructor(name: string, age: number, grade: string) {
+    this.name = name;
+    this.age = age;
+    this.grade = grade;
   }
 }
 ```
 
-### Task 5
-
-You need to implement the KeyValuePair interface that describes a key-value pair. Use generics so that this interface can work with any types of keys and values.
-
-```ts
-interface KeyValuePair {
-  key;
-  value;
-}
-```
-
-### Task 6
-
-You have a user registration form. Sometimes you need to pre-fill the form with user data for updating their profile. However, you don't always need to fill out all fields. For example, a user might want to update only their email and password, leaving their name and surname unchanged.
-
-Fix the type in the function argument to eliminate type errors.
+## Task 2
+Create two classes - Employee and Manager.
+1. The Employee class should include:
+A property name, which should be accessible to everyone.
+A property department, which should be accessible only within the Employee class.
+salary, which should be accessible only within the Employee class and its subclasses.
+2. The Manager class should be a subclass of the Employee class.
+Implement a constructor in the Manager class that calls the superclass constructor and increases the salary by 10000.
 
 ```ts
-type User = {
+class Employee {
+  // Fill in access modifiers
   name: string;
-  surname: string;
-  email: string;
-  password: string;
-};
+  department: string;
+  salary: number;
 
-function createOrUpdateUser(initialValues: User) {
-  // Updating the user
+  constructor(name: string, department: string, salary: number) {
+    this.name = name;
+    this.department = department;
+    this.salary = salary;
+  }
+
+  getEmployeeDetails() {
+    return `Name: ${this.name}, Department: ${this.department}, Salary: ${this.salary}`;
+  }
 }
 
-createOrUpdateUser({ email: "user@mail.com", password: "password123" });
+class Manager extends Employee {
+  // Implement the constructor and increase salary by 10000
+}
 ```
 
-### Task 7
-
-You have the UserRole enum used for classifying users in your application. You want to create a RoleDescription object that maps each user role to its description.
+## Task 3
+You are creating a game where there are characters with different roles. Now you are working on the Wizard class, which should implement two interfaces - ICharacter and ISpellCaster.
+Define interfaces ICharacter and ISpellCaster to match the requirements of the Wizard class:
+1. The ICharacter interface should include properties name and level, as well as methods introduce and levelUp.
+2. The ISpellCaster interface should include the method castSpell.
 
 ```ts
-export enum UserRole {
-  admin = "admin",
-  editor = "editor",
-  guest = "guest",
+class Wizard implements ICharacter, ISpellCaster {
+  constructor(public name: string, public level: number) {
+    if (this.level < 1) {
+      throw new Error("Level too low");
+    }
+  }
+
+  introduce(phrase: string): void {
+    console.log(phrase + ", " + this.name);
+  }
+
+  castSpell(): void {
+    console.log("Casting a spell, behold my power!");
+  }
+
+  levelUp(): void {
+    this.level++;
+    console.log(`Level up! New level is ${this.level}`);
+  }
 }
 
-const RoleDescription = {
-  admin: "Admin User",
-  editor: "Editor User",
-  guest: "Guest User",
-};
+// testing the class
+const wizard = new Wizard("Merlin", 15);
+
+wizard.introduce("I am the mighty wizard");
+wizard.castSpell();
+wizard.levelUp(); // Level up! New level is 16
 ```
 
-### Task 8
-
-You have the Form type that contains information about a form, including the errors field. You want to create a new Params type that includes all fields from Form except errors.
+## Task 4 \*
+In this task, you need to implement a scenario where a person, a key, and a house interact with each other.
+1. Key: Create a class Key. It should have a private property signature, which is randomly generated when an object of this class is created (for example, Math.random()). This class should also have a method getSignature that returns the value of the signature property.
+2. Person: Create a class Person. The constructor of this class takes an object of the Key class and stores them in a private property key. The Person class should have a method getKey that returns the stored key.
+3. House: Create an abstract class House. This class should have two properties: door, which can be open (true) or closed (false), and key, which stores an object of the Key class. This class should also have a method comeIn that adds an object of the Person class to the tenants array if the door is open. Your abstract class House should also have an abstract method openDoor, which takes an object of the Key class.
+4. MyHouse: Create a class MyHouse that inherits from the abstract class House. Implement the openDoor method in this class. If the key passed to this method matches the key stored as key, then the door opens.
+5. After implementing all classes, create objects for each class and try to recreate a scenario where a person comes home.
 
 ```ts
-type Errors = {
-  email?: string[];
-  firstName?: string[];
-  lastName?: string[];
-  phone?: string[];
-};
+const key = new Key();
 
-type Form = {
-  email: string | null;
-  firstName: string | null;
-  lastName: string | null;
-  phone: string | null;
-  errors: Errors;
-};
+const house = new MyHouse(key);
+const person = new Person(key);
 
-type Params = Form;
-``;
+house.openDoor(person.getKey());
+
+house.comeIn(person);
 ```
