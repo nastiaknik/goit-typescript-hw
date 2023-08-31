@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/goit-typescript-hw/static/css/main.e7e46515.css",
+    "main.js": "/goit-typescript-hw/static/js/main.725d4e6d.js",
+    "index.html": "/goit-typescript-hw/index.html",
+    "main.e7e46515.css.map": "/goit-typescript-hw/static/css/main.e7e46515.css.map",
+    "main.725d4e6d.js.map": "/goit-typescript-hw/static/js/main.725d4e6d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e7e46515.css",
+    "static/js/main.725d4e6d.js"
+  ]
+}
