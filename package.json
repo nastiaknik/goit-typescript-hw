@@ -19,6 +19,7 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.15.0",
     "react-scripts": "5.0.1",
+    "react-toastify": "^9.1.3",
     "styled-components": "^6.0.7",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
@@ -33,6 +34,7 @@
     "type": "git",
     "url": "git+https://github.com/nastiaknik/goit-typescript-hw.git"
   },
+  "homepage": "https://nastiaknik.github.io/goit-typescript-hw/",
   "keywords": [],
   "author": "",
   "bugs": {

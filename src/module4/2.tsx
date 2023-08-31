@@ -1,5 +1,14 @@
 import { useReducer, useState } from "react";
-import "./style.css";
+import {
+  Wrapper,
+  ActionBtn,
+  Progress,
+  RequestState,
+  Circle,
+  Label,
+  Title,
+  Bar,
+} from "./Request.styled";
 
 // Add types for the following code elements:
 
@@ -50,18 +59,18 @@ export function RequestComponent() {
   const steps = [
     { label: "Start", title: "1" },
     { label: "Pending", title: "2" },
-    { label: "Finish", title: "3" },
+    { label: "Finished", title: "3" },
   ];
   const startRequest = () => {
     requestDispatch({ type: "START_REQUEST" });
-    setActiveStep((prevStep) => (prevStep <= 3 ? prevStep + 1 : 1));
+    setActiveStep(1);
     // Simulate a server request
     setTimeout(() => {
-      setActiveStep((prevStep) => (prevStep <= 3 ? prevStep + 1 : 1));
+      setActiveStep(2);
       requestDispatch({ type: "PENDING_REQUEST" });
       // Simulate receiving a response from the server
       setTimeout(() => {
-        setActiveStep((prevStep) => (prevStep <= 3 ? prevStep + 1 : 1));
+        setActiveStep(3);
         requestDispatch({ type: "FINISH_REQUEST" });
       }, 2000);
     }, 2000);
@@ -73,74 +82,37 @@ export function RequestComponent() {
   };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        margin: "20px",
-      }}
-    >
-      <button
-        style={{
-          backgroundColor: "#007bff",
-          color: "#fff",
-          border: "none",
-          padding: "10px 20px",
-          margin: "5px",
-          cursor: "pointer",
-          borderRadius: "5px",
-          fontSize: "16px",
-        }}
-        onClick={startRequest}
-      >
-        Почати запит
-      </button>
-      <button
-        style={{
-          backgroundColor: "#007bff",
-          color: "#fff",
-          border: "none",
-          padding: "10px 20px",
-          margin: "5px",
-          cursor: "pointer",
-          borderRadius: "5px",
-          fontSize: "16px",
-        }}
-        onClick={resetRequest}
-      >
-        Скинути запит
-      </button>
-      <p style={{ marginTop: "10px", fontSize: "18px" }}>
-        Стан запиту: {requestState.requestStep}
-      </p>
+    <Wrapper>
+      <ActionBtn onClick={startRequest}>Почати запит</ActionBtn>
+      <ActionBtn onClick={resetRequest}>Скинути запит</ActionBtn>
+      <RequestState>Стан запиту: {requestState.requestStep}</RequestState>
 
-      <div className="progress" style={{ display: "flex" }}>
+      <Progress>
         {steps.map((step, index) => (
           <div key={index}>
-            <div
-              className={`circle ${
-                activeStep === index + 1
-                  ? "active"
-                  : activeStep > index + 1
+            <Circle
+              className={
+                activeStep === 3 || activeStep > index + 1
                   ? "done"
+                  : activeStep === index + 1
+                  ? "active"
                   : ""
-              }`}
+              }
             >
-              <span className="label">
-                {activeStep > index + 1 ? "\u2713" : step.title}
-              </span>
-              <span className="title">{step.label}</span>
-            </div>
+              <Label>
+                {activeStep > index + 1 || activeStep === 3
+                  ? "\u2713"
+                  : step.title}
+              </Label>
+              <Title>{step.label}</Title>
+            </Circle>
             {index < steps.length - 1 && (
-              <span
-                className={`bar ${activeStep > index + 1 ? "active" : ""}`}
-              ></span>
+              <Bar className={activeStep > index + 1 ? "active" : ""}></Bar>
             )}
           </div>
         ))}
-      </div>
-    </div>
+      </Progress>
+    </Wrapper>
   );
 }
 

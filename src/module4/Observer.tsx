@@ -1,14 +1,14 @@
-import { Observer as ObserverComponent } from "./1";
+import { toast } from "react-toastify";
+import { Observer } from "./1";
+import { Wrapper, Title, Paragraph } from "./Observer.styled";
 
-export const Observer = () => {
+export const ObserverComponent = () => {
   return (
-    <ObserverComponent
+    <Observer
       children={
-        <div style={{ margin: "20px" }}>
-          <h3 style={{ textAlign: "center" }}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit
-          </h3>
-          <p>
+        <Wrapper>
+          <Title>Lorem ipsum dolor sit amet consectetur adipisicing elit</Title>
+          <Paragraph>
             Nulla quod vero repellendus hic itaque distinctio qui modi eveniet
             tenetur, recusandae minus quam. Sint, doloremque? Quam vitae cumque
             illum et ad? Lorem ipsum dolor sit amet consectetur adipisicing
@@ -23,8 +23,8 @@ export const Observer = () => {
             fugit molestias recusandae. Fuga minus numquam enim, natus, tenetur
             odio sint dolorum necessitatibus aut voluptas ducimus debitis nihil
             vero.
-          </p>
-          <p>
+          </Paragraph>
+          <Paragraph>
             Tempore magni alias optio consequatur, a quidem. Et quibusdam nihil
             earum libero omnis. Saepe ratione, similique porro commodi
             cupiditate minima! Labore accusamus recusandae dolorem deserunt?
@@ -32,8 +32,8 @@ export const Observer = () => {
             optio delectus dolor voluptatem obcaecati. Error aperiam labore ex?
             Nostrum sit optio repudiandae at quaerat, culpa, aliquam quisquam
             est esse itaque vero atque soluta! Aliquid, inventore!
-          </p>
-          <p>
+          </Paragraph>
+          <Paragraph>
             Est quo facilis velit, rerum quia repudiandae eos fugit illum
             dolores sint, aut, doloremque maiores reiciendis temporibus omnis!
             Dolorem deserunt quaerat ullam pariatur labore repudiandae odio
@@ -41,8 +41,8 @@ export const Observer = () => {
             incidunt similique quidem nisi veniam aperiam eos suscipit amet vel
             ducimus dolores quod voluptatum consectetur illo recusandae id!
             Minima, minus ipsam iure corrupti neque cumque sed.
-          </p>
-          <p>
+          </Paragraph>
+          <Paragraph>
             Ducimus ut delectus non velit minus, architecto aliquam neque
             necessitatibus labore unde autem cum veniam ratione. Officia
             placeat, quis repellendus ipsam qui similique pariatur perspiciatis
@@ -57,8 +57,8 @@ export const Observer = () => {
             sed, porro commodi est quis sapiente iure aliquam iste facilis
             numquam optio pariatur eaque similique accusantium ipsum expedita
             earum incidunt amet doloremque ab provident. Accusamus, modi quas!
-          </p>
-          <p>
+          </Paragraph>
+          <Paragraph>
             Voluptatum esse molestias ipsam culpa autem, pariatur odit iusto
             blanditiis! Accusantium cum quidem nostrum vitae tempora distinctio
             porro, veritatis officia illum voluptatibus esse. Adipisci,
@@ -79,8 +79,8 @@ export const Observer = () => {
             dolor cum similique. Mollitia aliquam soluta minima exercitationem
             atque! Veniam asperiores magnam quis culpa id nobis delectus ipsa
             deserunt, quasi ipsam voluptas laudantium odio.
-          </p>
-          <p>
+          </Paragraph>
+          <Paragraph>
             Nulla quod vero repellendus hic itaque distinctio qui modi eveniet
             tenetur, recusandae minus quam. Sint, doloremque? Quam vitae cumque
             illum et ad? Lorem ipsum dolor sit amet consectetur adipisicing
@@ -95,8 +95,8 @@ export const Observer = () => {
             fugit molestias recusandae. Fuga minus numquam enim, natus, tenetur
             odio sint dolorum necessitatibus aut voluptas ducimus debitis nihil
             vero.
-          </p>
-          <p>
+          </Paragraph>
+          <Paragraph>
             Tempore magni alias optio consequatur, a quidem. Et quibusdam nihil
             earum libero omnis. Saepe ratione, similique porro commodi
             cupiditate minima! Labore accusamus recusandae dolorem deserunt?
@@ -104,8 +104,8 @@ export const Observer = () => {
             optio delectus dolor voluptatem obcaecati. Error aperiam labore ex?
             Nostrum sit optio repudiandae at quaerat, culpa, aliquam quisquam
             est esse itaque vero atque soluta! Aliquid, inventore!
-          </p>
-          <p>
+          </Paragraph>
+          <Paragraph>
             Est quo facilis velit, rerum quia repudiandae eos fugit illum
             dolores sint, aut, doloremque maiores reiciendis temporibus omnis!
             Dolorem deserunt quaerat ullam pariatur labore repudiandae odio
@@ -113,8 +113,8 @@ export const Observer = () => {
             incidunt similique quidem nisi veniam aperiam eos suscipit amet vel
             ducimus dolores quod voluptatum consectetur illo recusandae id!
             Minima, minus ipsam iure corrupti neque cumque sed.
-          </p>
-          <p>
+          </Paragraph>
+          <Paragraph>
             Ducimus ut delectus non velit minus, architecto aliquam neque
             necessitatibus labore unde autem cum veniam ratione. Officia
             placeat, quis repellendus ipsam qui similique pariatur perspiciatis
@@ -129,8 +129,8 @@ export const Observer = () => {
             sed, porro commodi est quis sapiente iure aliquam iste facilis
             numquam optio pariatur eaque similique accusantium ipsum expedita
             earum incidunt amet doloremque ab provident. Accusamus, modi quas!
-          </p>
-          <p>
+          </Paragraph>
+          <Paragraph>
             Voluptatum esse molestias ipsam culpa autem, pariatur odit iusto
             blanditiis! Accusantium cum quidem nostrum vitae tempora distinctio
             porro, veritatis officia illum voluptatibus esse. Adipisci,
@@ -151,10 +151,12 @@ export const Observer = () => {
             dolor cum similique. Mollitia aliquam soluta minima exercitationem
             atque! Veniam asperiores magnam quis culpa id nobis delectus ipsa
             deserunt, quasi ipsam voluptas laudantium odio.
-          </p>
-        </div>
+          </Paragraph>
+        </Wrapper>
       }
-      onContentEndVisible={() => alert("That's all!")}
+      onContentEndVisible={() => {
+        toast.success("That's all!");
+      }}
     />
   );
 };
