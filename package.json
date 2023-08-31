@@ -4,6 +4,7 @@
   "description": "",
   "license": "ISC",
   "private": true,
+  "homepage": "https://nastiaknik.github.io/goit-typescript-hw/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -35,7 +36,6 @@
     "type": "git",
     "url": "git+https://github.com/nastiaknik/goit-typescript-hw.git"
   },
-  "homepage": "https://nastiaknik.github.io/goit-typescript-hw/",
   "keywords": [],
   "author": "",
   "bugs": {
@@ -53,6 +53,7 @@
       "last 1 safari version"
     ]
   },
+  "main": "index.tsx",
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -61,6 +62,7 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-    "@types/lodash": "^4.14.195"
+    "@types/lodash": "^4.14.195",
+    "@types/styled-components": "^5.1.26"
   }
 }
